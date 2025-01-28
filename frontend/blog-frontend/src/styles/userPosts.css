@@ -1,0 +1,144 @@
+/* Container */
+.user-posts-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background: #1a1a1a; /* Dark grimdark background */
+    font-family: 'Lora', serif; /* Gothic-style font */
+    color: #ffffff;
+    padding: 20px;
+}
+
+.user-posts-title {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5rem;
+    color: #FFD700; /* Gold for Imperial vibe */
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+/* Error Message */
+.error-message {
+    color: #ff4500; /* Fiery red for errors */
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* No Posts Message */
+.no-posts-message {
+    font-size: 1.5rem;
+    color: #B0C4DE; /* Light steel blue */
+    font-style: italic;
+    margin-top: 30px;
+}
+
+/* Posts List */
+.user-posts-list {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Individual Post Item */
+.user-post-item {
+    background: linear-gradient(145deg, #2d2d2d, #1a1a1a);
+    border: 2px solid #cfcdc1; /* Imperial border */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.8);
+    border-radius: 15px;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.user-post-item:hover {
+    border-color: #FFD700;
+    box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.8);
+}
+
+/* Post Title */
+.user-post-item-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.8rem;
+    color: #FFD700;
+    margin-bottom: 20px;
+}
+
+/* Post Image */
+.user-post-image {
+    max-width: 200px;
+    border: 2px solid #708090;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.8);
+    margin-bottom: 15px;
+}
+
+/* Post Excerpt */
+.user-post-excerpt {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+/* Post Status */
+.user-post-status {
+    font-family: 'Cinzel', serif;
+    color: #B0C4DE;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+/* Actions */
+.user-post-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.user-post-button {
+    padding: 10px 15px;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: #8B0000; /* Dark red */
+    border: 2px solid #FFD700;
+    color: white;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+}
+
+.user-post-button:hover {
+    background-color: #B22222; /* Firebrick */
+    box-shadow: 0px 4px 10px rgba(255, 69, 0, 0.8);
+}
+
+/* Specific Buttons (optional subtle variations) */
+.preview-button {
+    /* Add subtle styling if needed */
+}
+
+.publish-button {
+    /* Add subtle styling if needed */
+}
+
+.delete-button {
+    /* Add subtle styling if needed */
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .user-posts-list {
+        width: 95%;
+    }
+
+    .user-post-item-title {
+        font-size: 1.5rem;
+    }
+}

@@ -1,0 +1,126 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  guest
+  admin
+}
+
+model User {
+  id            Int      @id @default(autoincrement())
+  username      String   @unique
+  password      String
+  email         String   @unique
+  role          Role     @default(guest)
+  bio           String?
+  profilePicUrl String   @default("http://localhost:5000/static/blank-profile-picture-973460.svg")
+  posts         Post[]
+  likes         Postlikes[]
+  bookmarks     Bookmark[]
+  comments      Comment[]
+  commentlikes  Commentlikes[]
+}
+
+model Session {
+  id        String   @id
+  sid       String   @unique
+  data      String
+  expiresAt DateTime
+}
+
+enum PostStatus {
+  published
+  unpublished
+  draft
+}
+
+model Post {
+  id           Int        @id @default(autoincrement())
+  title        String?    
+  authorId     Int
+  author       User       @relation(fields: [authorId], references: [id])
+  content      String?
+  slug         String?     
+  excerpt      String?
+  postImageUrl String? 
+  createdAt    DateTime   @default(now())
+  status       PostStatus @default(unpublished)
+  featured     Boolean    @default(false) //to show featured post on the homepage
+  viewCount    Int        @default(0)
+  tags         Tag[]      @relation("PostTags")
+  categories   Category[] @relation("PostCategories")
+  postlikes    Postlikes[] 
+  bookmarks    Bookmark[]
+  likeCount    Int        @default(0)
+  comments     Comment[]
+}
+
+model Comment {
+  id                Int       @id @default(autoincrement())
+  postId            Int
+  post              Post      @relation(fields: [postId], references: [id], onDelete: Cascade)
+  userId            Int
+  user              User      @relation(fields: [userId], references: [id])    
+  comment           String 
+  createdAt         DateTime  @default(now())
+  parentId          Int?
+  parent            Comment?  @relation("CommentThread", fields: [parentId], references: [id])
+  replies           Comment[] @relation("CommentThread")
+  commentlikes      Commentlikes[]
+  likeCount         Int       @default(0)
+}
+
+model Category {
+  id          Int    @id @default(autoincrement())
+  name        String @unique
+  posts       Post[] @relation("PostCategories")
+}
+
+model Tag {
+  id          Int    @id @default(autoincrement())
+  name        String @unique
+  posts       Post[] @relation("PostTags")
+}
+
+model Bookmark {
+  id         Int       @id @default(autoincrement())
+  postId     Int
+  post       Post      @relation(fields: [postId], references: [id], onDelete: Cascade)
+  userId     Int
+  user       User      @relation(fields: [userId], references: [id])    
+  
+  @@unique([userId, postId])
+}
+model Postlikes {
+  id         Int       @id @default(autoincrement())
+  postId     Int
+  post       Post      @relation(fields: [postId], references: [id], onDelete: Cascade)
+  userId     Int
+  user       User      @relation(fields: [userId], references: [id])    
+  
+  @@unique([userId, postId])
+}
+
+model Commentlikes {
+  id            Int          @id @default(autoincrement())
+  commentId     Int
+  comment       Comment      @relation(fields: [commentId], references: [id], onDelete: Cascade)
+  userId        Int
+  user          User         @relation(fields: [userId], references: [id])    
+  
+  @@unique([userId, commentId])
+}
+
+

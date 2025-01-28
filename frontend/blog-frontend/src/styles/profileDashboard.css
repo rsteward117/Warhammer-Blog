@@ -1,0 +1,235 @@
+/* Container for the main content of the profile dashboard */
+.profile-dashboard-container {
+  margin-left: 100px; 
+  padding: 2rem;
+  min-height: 100vh;
+  background-color: #1a1a1a; /* Grimdark background */
+  color: #f2f2f2;
+  font-family: 'Roboto', sans-serif; /* or a Gothic-themed font for 40k vibes */
+}
+
+/* Header section */
+.profile-dashboard-header {
+  margin-bottom: 2rem;
+  width: 100%;
+  border-bottom: 1px solid #444;
+  padding-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-info {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* Profile Avatar */
+.profile-avatar {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #C9B037; /* Gold accent border */
+}
+
+.profile-dashboard-title {
+  font-size: 2rem;
+  color: #C9B037; /* Gold accent */
+  margin: 0;
+}
+
+.profile-dashboard-subtitle  {
+  font-size: 1.5rem !important;
+  font-weight: 700 !important;
+  color: #999;
+  font-style: italic;
+}
+
+.profile-email {
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+  margin-top: 0.30rem;
+  color: #bbb;
+  font-size: 0.9rem;
+}
+
+/* Stats / Analytics section */
+.profile-dashboard-stats {
+  display: flex;
+  gap: 0.rem;
+  flex-wrap: wrap; /* allow wrapping on smaller screens */
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  flex: 1;
+  background-color: #262626;
+  border: 1px solid #333;
+  border-radius: 6px;
+  padding: 0.50rem;
+  text-align: center;
+  min-width: 150px; /* so they don’t get too narrow */
+}
+
+.stat-card h2 {
+  margin: 0 0 0.5rem 0;
+  color: #C9B037; /* Gold accent */
+  font-size: 1.25rem;
+}
+
+.stat-card p {
+  font-size: 1.5rem;
+  color: #C9B037; /* Dark red for Warhammer aesthetic */
+  margin: 0;
+}
+
+/* Section titles */
+.section-title {
+  font-size: 1.5rem;
+  color: #C9B037;
+  margin-bottom: 1rem;
+}
+
+/* Posts/List sections */
+/* === Tab Panel Container === */
+.profile-tab-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #1a1a1a;
+  padding: 20px;
+  border-radius: 6px;
+}
+
+/* === Tab Panel Title === */
+.profile-tab-title {
+  font-family: 'Cinzel', serif; /* or a Gothic-themed font */
+  font-size: 2rem;
+  color: #FFD700; /* Gold accent */
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* === Error Message === */
+.profile-tab-error {
+  color: #ff4500; /* Fiery red for errors */
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* === No Post Message === */
+.profile-tab-nopost-message {
+  font-size: 1.2rem;
+  color: #B0C4DE;
+  font-style: italic;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+/* === Post/List Container === */
+.profile-tab-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* === Individual Item === */
+.profile-tab-item {
+  background: linear-gradient(145deg, #2d2d2d, #1a1a1a);
+  border: 2px solid #cfcdc1; 
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.8);
+  border-radius: 15px;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.profile-tab-item:hover {
+  border-color: #FFD700;
+  box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.8);
+}
+
+/* === Item Title === */
+.profile-tab-item-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.5rem;
+  color: #FFD700;
+  margin-bottom: 1rem;
+}
+
+/* === Item Image === */
+.profile-tab-image {
+  max-width: 200px;
+  border: 2px solid #708090;
+  border-radius: 8px;
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.8);
+  margin-bottom: 15px;
+}
+
+/* === Item Excerpt === */
+.profile-tab-excerpt {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+/* === Item Actions Container === */
+.profile-tab-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* === Action Buttons === */
+.profile-tab-button {
+  padding: 10px 15px;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: #8B0000; 
+  border: 2px solid #FFD700;
+  color: white;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-family: 'Roboto', sans-serif;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+}
+
+.profile-tab-button:hover {
+  background-color: #B22222; /* Firebrick */
+  box-shadow: 0px 4px 10px rgba(255, 69, 0, 0.8);
+}
+
+
+/* React tabs */
+.react-tabs__tab-list {
+  border-bottom: 1px solid #444;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  background-color: #1a1a1a;
+}
+
+/* Individual tabs */
+.react-tabs__tab {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  color: #C9B037;
+  background-color: #1a1a1a;
+  border: 1px solid #444;
+  border-radius: 4px 4px 0 0;
+  transition: background-color 0.2s;
+}
+
+.react-tabs__tab--selected {
+  background-color: #262626; 
+  border-bottom: none; 
+  color: red; 
+}
+

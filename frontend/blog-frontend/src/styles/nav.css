@@ -1,0 +1,139 @@
+/* Navbar Container */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1A1A1D; /* Dark Gothic Background */
+  padding: 10px 20px; /* Keep small padding for breathing space */
+  border-bottom: 4px solid #FFD700; /* Gold bottom border */
+  position: fixed;
+  width: 100%; /* Span full width */
+  top: 0;
+  left: 0; /* Ensure alignment starts from the left */
+  z-index: 1000;
+  font-family: 'Cinzel', serif;
+  box-sizing: border-box; /* Include padding/border in width calculation */
+}
+
+/* Logo Section */
+.nav-logo {
+  flex: 1;
+}
+
+.logo-image {
+  width: 80px;
+  height: auto;
+}
+
+/* Hamburger Menu Icon */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.bar {
+  width: 30px;
+  height: 3px;
+  background-color: #FFD700;
+  transition: transform 0.3s;
+}
+
+.hamburger .bar.open:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger .bar.open:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger .bar.open:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Center Links */
+.nav-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  flex: 2;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li a {
+  color: #FFD700; /* Gold Text */
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #FFFFFF; /* Bright glow */
+  text-shadow: 0 0 10px #FFD700;
+}
+
+/* Right Section: Profile & Search */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.profile-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid #FFD700; /* Gold Border */
+}
+
+.profile-pic:hover {
+  box-shadow: 0 0 10px #FFD700;
+  cursor: pointer;
+}
+
+/* Search Bar Styling */
+.search-bar {
+  width: 200px;
+  padding: 5px 10px;
+  border: 2px solid #FFD700;
+  border-radius: 5px;
+  background-color: #1A1A1D;
+  color: #FAF9F6;
+}
+
+.search-bar:focus {
+  outline: none;
+  box-shadow: 0 0 10px #FFD700;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/* Show Hamburger Menu on Small Screens */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; /* Hide desktop links */
+  }
+
+  .hamburger {
+    display: flex; /* Show hamburger menu */
+  }
+
+  .nav-right {
+    display: none; /* Optionally hide profile and search bar */
+  }
+}

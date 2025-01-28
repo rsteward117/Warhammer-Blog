@@ -1,0 +1,127 @@
+/* Container */
+.signup-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    width: 60%;
+    height: auto;
+    border-radius: 15px;
+    background: linear-gradient(145deg, #2d2d2d, #1a1a1a);
+    border: 2px solid #cfcdc1; /* Gold border for Imperial style */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.8);
+    color: white;
+    font-family: 'Lora', serif; /* Gothic-style font */
+}
+
+/* Header */
+.signup-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.signup-aquila{
+    display: block;
+    margin: 0 auto; /* Centers the image */
+    width: 200px; /* Set a specific width */
+    height: auto; /* Keeps the aspect ratio intact */
+}
+
+.signup-header h1 {
+    font-size: 2.5rem;
+    color: #FFD700; /* Gold */
+    font-family: 'Cinzel', serif; /* Elegant Gothic look */
+    margin-bottom: 10px;
+}
+
+.signup-header h2 {
+    font-size: 1.2rem;
+    color: #B0C4DE; /* Light steel blue */
+    font-family: 'Lora', serif;
+}
+
+/* Form */
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-input {
+    padding: 15px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: 2px solid #708090; /* Slate gray border */
+    border-radius: 8px;
+    background-color: #1a1a1a;
+    color: white;
+    transition: all 0.3s ease;
+    font-family: 'Roboto', sans-serif;
+}
+
+.form-input:focus {
+    background-color: #2f4f4f; /* Dark slate gray */
+    color: #FFD700; /* Gold text */
+    outline: none;
+    border-color: #FFD700;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.8); /* Glowing effect */
+}
+
+/* Button */
+.signup-form-btn {
+    padding: 15px;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: #8B0000; /* Dark red for Warhammer's grim vibe */
+    border: 2px solid #FFD700;
+    color: white;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    letter-spacing: 1.5px;
+}
+
+.signup-form-btn:hover {
+    background-color: #B22222; /* Firebrick */
+    box-shadow: 0px 4px 10px rgba(255, 69, 0, 0.8); /* Glowing orange-red effect */
+}
+
+/* Placeholder Styling */
+.form-input::placeholder {
+    color: #696969; /* Dim gray */
+    font-style: italic;
+}
+
+.current-user-text{
+    color: white;
+    font-size: 1.2rem;
+}
+
+.current-user-btn{
+    color: #6495ED;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.current-user-btn:hover{
+    text-decoration: underline;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .signup-container {
+        width: 80%;
+        padding: 15px;
+    }
+
+    .signup-header h1 {
+        font-size: 2rem;
+    }
+
+    .signup-header h2 {
+        font-size: 1rem;
+    }
+}

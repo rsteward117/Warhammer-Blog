@@ -1,0 +1,159 @@
+.comments-container {
+    width: 100%;
+    background: #1a1a1a; /* Grimdark background */
+    color: #ffffff;
+    font-family: 'Lora', serif;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 2px solid #cfcdc1;
+    border-radius: 8px;
+}
+
+.error-message {
+    color: #ff4500;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.no-comments-message,
+.loading-message {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #B0C4DE;
+}
+
+/* Individual Comment */
+.comment {
+    display: flex;
+    align-items: flex-start;
+    padding: 20px 0;
+    border-bottom: 1px solid #708090;
+}
+
+.comment:last-child {
+    border-bottom: none;
+}
+
+.comment-left {
+    margin-right: 10px;
+}
+
+.comment-author-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #FFD700;
+    cursor: pointer;
+}
+
+.comment-right {
+    flex: 1;
+}
+
+.comment-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Cinzel', serif;
+    margin-bottom: 10px;
+}
+
+.comment-author-name {
+    font-size: 1rem;
+    color: #FFD700;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.comment-author-name:hover {
+    text-decoration: underline;
+}
+
+.comment-timestamp {
+    font-size: 0.9rem;
+    color: #B0C4DE;
+    font-family: 'Roboto', sans-serif;
+}
+
+.comment-body {
+    margin-bottom: 10px;
+}
+
+.comment-content {
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+    line-height: 1.4;
+    background-color: #2d2d2d;
+    border: 2px solid #708090;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.comment-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.comment-action-button {
+    padding: 5px 10px;
+    background-color: #8B0000; /* Dark red */
+    border: 2px solid #FFD700;
+    color: #ffffff;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    letter-spacing: 1px;
+}
+
+.comment-action-button:hover {
+    background-color: #B22222; /* Firebrick */
+    box-shadow: 0px 2px 5px rgba(255, 69, 0, 0.8);
+}
+
+.delete-button {
+    background-color: #8B0000;
+}
+
+/* Replies Indentation and Style */
+.comment-reply-wrapper {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 0;
+    border-top: 1px dashed #708090;
+    margin-top: 10px;
+}
+
+.comment-reply-wrapper .comment {
+    border-bottom: none;
+}
+
+/* Hover Effects (Optional) */
+.comment:hover .comment-content {
+    border-color: #FFD700;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .comment-content {
+        font-size: 0.95rem;
+        padding: 8px;
+    }
+
+    .comment-action-button {
+        font-size: 0.8rem;
+        padding: 4px 8px;
+    }
+
+    .comment-author-img {
+        width: 40px;
+        height: 40px;
+    }
+}

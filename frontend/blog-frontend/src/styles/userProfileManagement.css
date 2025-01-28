@@ -1,0 +1,134 @@
+/* 
+   Container that includes both the sidebar (fixed) 
+   and the main content area on the right.
+*/
+.profile-management-container {
+    display: flex;
+    min-height: 100vh;
+    background-color: #1a1a1a; /* Warhammer Grimdark background */
+    color: #f2f2f2;
+    font-family: 'Roboto', sans-serif; /* Or a gothic-themed font for 40k vibes */
+  }
+  
+  /* 
+     The main content area 
+     (assuming the sidebar is 250px wide).
+  */
+  .profile-management-content {
+    flex: 1;
+    margin-left: 250px; 
+    padding: 2rem;
+  }
+  
+  /* Header section */
+  .profile-management-header {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #444;
+    padding-bottom: 1rem;
+  }
+  
+  .profile-management-title {
+    font-size: 2rem;
+    margin: 0;
+    color: #C9B037; /* Gold accent color */
+  }
+  
+  .profile-management-subtitle {
+    margin-top: 0.5rem;
+    color: #999;
+  }
+  
+  /* Server response/error messages */
+  .response-messages {
+    margin-bottom: 1rem;
+  }
+  
+  .error-message {
+    color: #ff4c4c;
+    margin-bottom: 0.5rem;
+  }
+  
+  .success-message {
+    color: #00cc66;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Sections for each profile update area */
+  .profile-section {
+    margin-bottom: 2rem;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+    color: #C9B037;
+    margin-bottom: 1rem;
+  }
+  
+  /* Basic profile info text styling */
+  .profile-info {
+    margin-bottom: 1rem;
+    color: #ccc;
+  }
+  
+  /* Profile Picture */
+  .profile-pic-display {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ff3f3f;
+    margin-bottom: 1rem;
+  }
+  
+  /* Forms */
+  .profile-form {
+    background-color: #262626; /* Slightly lighter than the background */
+    border: 1px solid #333;
+    border-radius: 6px;
+    padding: 1.5rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  .form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #ff3f3f; /* Red accent for label text */
+  }
+  
+  .form-input,
+  .form-textarea {
+    width: 100%;
+    background-color: #333;
+    border: 1px solid #444;
+    border-radius: 4px;
+    color: #f2f2f2;
+    padding: 0.5rem;
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .form-input:focus,
+  .form-textarea:focus {
+    outline: none;
+    border-color: #ff3f3f;
+  }
+  
+  /* Action Buttons */
+  .action-button {
+    background-color: #8B0000; /* Dark red */
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+  }
+  
+  .action-button:hover {
+    background-color: #ff3f3f; /* Lighter red on hover */
+  }
+  

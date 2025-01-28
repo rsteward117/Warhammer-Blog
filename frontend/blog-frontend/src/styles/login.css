@@ -1,0 +1,127 @@
+/* Container */
+.login-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    width: 50%;
+    height: auto;
+    border-radius: 15px;
+    background: linear-gradient(145deg, #2d2d2d, #1a1a1a);
+    border: 2px solid #cfcdc1; /* Gold border for Imperial style */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.8);
+    color: white;
+    font-family: 'Lora', serif; /* Gothic-style font */
+}
+
+/* Header */
+.login-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.login-aquila{
+    display: block;
+    margin: 0 auto; /* Centers the image */
+    width: 200px; /* Set a specific width */
+    height: auto; /* Keeps the aspect ratio intact */
+}
+
+.login-header h1 {
+    font-size: 2.5rem;
+    color: #FFD700; /* Gold */
+    font-family: 'Cinzel', serif; /* Elegant Gothic look */
+    margin-bottom: 10px;
+}
+
+.login-header h2 {
+    font-size: 1.2rem;
+    color: #B0C4DE; /* Light steel blue */
+    font-family: 'Lora', serif;
+}
+
+/* Form */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-input {
+    padding: 15px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: 2px solid #708090; /* Slate gray border */
+    border-radius: 8px;
+    background-color: #1a1a1a;
+    color: white;
+    transition: all 0.3s ease;
+    font-family: 'Roboto', sans-serif;
+}
+
+.form-input:focus {
+    background-color: #2f4f4f; /* Dark slate gray */
+    color: #FFD700; /* Gold text */
+    outline: none;
+    border-color: #FFD700;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.8); /* Glowing effect */
+}
+
+/* Button */
+.login-form-btn {
+    padding: 15px;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: #8B0000; /* Dark red for Warhammer's grim vibe */
+    border: 2px solid #FFD700;
+    color: white;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    letter-spacing: 1.5px;
+}
+
+.login-form-btn:hover {
+    background-color: #B22222; /* Firebrick */
+    box-shadow: 0px 4px 10px rgba(255, 69, 0, 0.8); /* Glowing orange-red effect */
+}
+
+/* Placeholder Styling */
+.form-input::placeholder {
+    color: #696969; /* Dim gray */
+    font-style: italic;
+}
+
+.new-user-text{
+    color: white;
+    font-size: 1.2rem;
+}
+
+.new-user-btn{
+    color: #6495ED;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.new-user-btn:hover{
+    text-decoration: underline;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .login-container {
+        width: 80%;
+        padding: 15px;
+    }
+
+    .login-header h1 {
+        font-size: 2rem;
+    }
+
+    .login-header h2 {
+        font-size: 1rem;
+    }
+}

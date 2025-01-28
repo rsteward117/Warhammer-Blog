@@ -1,0 +1,35 @@
+const express = require("express");
+const router = express.Router();
+const passport = require("../passport");
+const multer = require("multer");
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage});
+
+const postController = require("../controllers/postController");
+
+router.post("/createpost", passport.authenticate('jwt', {session: false}), upload.single("images"),  postController.create_post);
+router.post("/draftpost", passport.authenticate('jwt', {session: false}), upload.single("images"), postController.save_post_as_draft);
+router.get("/userpost", passport.authenticate('jwt', {session: false}), postController.get_user_post);
+router.get("/user/recent/posts", passport.authenticate('jwt', {session: false}), postController.get_user_recent_posts);
+router.get("/user/draft/posts", passport.authenticate('jwt', {session: false}), postController.get_user_draft_posts);
+router.get("/user/liked/posts", passport.authenticate('jwt', {session: false}), postController.get_user_liked_posts);
+router.get("/user/bookmark/posts", passport.authenticate('jwt', {session: false}), postController.get_user_bookmark_posts);
+router.get("/userpost/numbers", passport.authenticate('jwt', {session: false}), postController.user_get_posts_numbers);
+router.get("/published/posts",  postController.get_all_post);
+router.get('/search', postController.search);
+router.get('/search/suggestions', postController.get_suggestions);
+router.get('/search/tags/category', postController.get_posts_by_tags_categories);
+router.get('/post/tags', postController.get_tags);
+router.get('/recentposts', passport.authenticate('jwt', {session: false}), postController.admin_get_recent_posts);
+router.get('/allposts', passport.authenticate('jwt', {session: false}), postController.admin_get_all_posts);
+router.get('/allposts/numbers', passport.authenticate('jwt', {session: false}), postController.admin_get_posts_numbers);
+router.get('/post/categories', postController.get_categories);
+router.get('/:postId',  postController.get_post_by_id);
+router.put('/:postId/edit', passport.authenticate('jwt', {session: false}), upload.single("images"), postController.update_post);
+router.put('/:postId/draftpost/edit', passport.authenticate('jwt', {session: false}), upload.single("images"), postController.save_edited_post_as_draft);
+router.put('/:postId/publish', passport.authenticate('jwt', {session: false}), postController.publish_post);
+router.delete('/:postId/deletepost', passport.authenticate('jwt', {session: false}), postController.delete_post);
+router.post('/:postId/like', passport.authenticate('jwt', {session: false}), postController.like_post);
+router.post('/:postId/bookmark', passport.authenticate('jwt', {session: false}), postController.bookmark_post);
+router.get('/:postId/likes', postController.like_count);
+module.exports = router;
