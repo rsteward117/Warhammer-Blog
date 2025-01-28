@@ -20,7 +20,7 @@ function Home() {
   useEffect(() =>{
     async function getPublishedPost() {
         try{
-            const res = await axios.get('https://warhammer-blog.onrender.com/api/post/published/posts')
+            const res = await axios.get('http://localhost:5000/api/post/published/posts')
             setPosts(res.data.getAllPublishPosts);
         } catch(err){
             setGetErrors("failed to load posts")          
