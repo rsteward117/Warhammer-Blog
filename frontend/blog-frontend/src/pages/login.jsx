@@ -5,6 +5,7 @@ import { AuthContext } from '../authContext';
 import '../styles/login.css';
 import aquilaimage from '../assets/40k_imperial_aquila__transparent__by_fuguestock_d91enql.png'
 import LoadingSpinner from '../components/loadingspinner';
+import { BACKEND_URL } from '../config';
 
 function Login() {
 
@@ -29,7 +30,7 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try{
-      const res = await axios.post('http://localhost:5000/api/auth/login', formData);
+      const res = await axios.post(`${BACKEND_URL}/api/auth/login`, formData);
       //this gets the token from the response data from express and set it to localStorage
       localStorage.setItem('token', res.data.token);
       //this set the json web token from express rest api in the useState for AuthContext to use

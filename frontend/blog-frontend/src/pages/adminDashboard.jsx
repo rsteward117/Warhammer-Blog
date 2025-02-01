@@ -5,6 +5,7 @@ import axios from 'axios';
 import '../styles/adminDashboard.css';
 import AdminSidebar from '../components/adminSidebar';
 import AdminHeader from '../components/adminHeader';
+import { BACKEND_URL } from '../config';
 
 //you left off here get the data from the database
 
@@ -27,7 +28,7 @@ const AdminDashboard = () => {
     
     async function getRecentUsers() {
         try{
-            const res = await axios.get('http://localhost:5000/api/user/recentusers', {headers: {Authorization: `Bearer ${jsonwebtoken}`}})
+            const res = await axios.get(`${BACKEND_URL}/api/user/recentusers`, {headers: {Authorization: `Bearer ${jsonwebtoken}`}})
             setRecentUsers(res.data.getRecentUsers);
         } catch(err){
             setGetErrors("failed to get users")          
@@ -36,7 +37,7 @@ const AdminDashboard = () => {
 
     async function getRecentPosts() {
         try{
-            const res = await axios.get('http://localhost:5000/api/post/recentposts', {headers: {Authorization: `Bearer ${jsonwebtoken}`}})
+            const res = await axios.get(`${BACKEND_URL}/api/post/recentposts`, {headers: {Authorization: `Bearer ${jsonwebtoken}`}})
             setRecentPost(res.data.getRecentPosts);
         } catch(err){
             setGetErrors("failed to get users")          
@@ -45,7 +46,7 @@ const AdminDashboard = () => {
 
         async function getUsersNumbers() {
         try{
-            const res = await axios.get('http://localhost:5000/api/user/user/numbers', {headers: {Authorization: `Bearer ${jsonwebtoken}`}})
+            const res = await axios.get(`${BACKEND_URL}/api/user/user/numbers`, {headers: {Authorization: `Bearer ${jsonwebtoken}`}})
             setUserStats(res.data.getUserNumber);
         } catch(err){
             setGetErrors("failed to get users")          
@@ -54,7 +55,7 @@ const AdminDashboard = () => {
 
     async function getPostStats() {
       try{
-          const res = await axios.get('http://localhost:5000/api/post/allposts/numbers', {headers: {Authorization: `Bearer ${jsonwebtoken}`}})
+          const res = await axios.get(`${BACKEND_URL}/api/post/allposts/numbers`, {headers: {Authorization: `Bearer ${jsonwebtoken}`}})
           setPostStats(res.data)
       } catch(err){
           console.err('Error fetching post statistics:', err);

@@ -1,5 +1,6 @@
 import { useState, useEffect, createContext, Children} from 'react';
 import axios from 'axios';
+import { BACKEND_URL } from './config';
 
 
 export const AuthContext = createContext();
@@ -12,7 +13,7 @@ export const AuthProvider = ({children}) => {
         async function fetchUser(token) {
             try{
                 //this gets the user data from the login api from the experss server using the token provided from local storage passed in form the 'token' parameter
-                const res = await axios.get('http://localhost:5000/api/auth', {headers: {Authorization: `Bearer ${token}`}})
+                const res = await axios.get(`${BACKEND_URL}/api/auth`, {headers: {Authorization: `Bearer ${token}`}})
                 console.log(res);
                 return res.data.user;
             } catch(err){

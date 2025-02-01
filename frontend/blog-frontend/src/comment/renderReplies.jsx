@@ -6,6 +6,7 @@ import DOMPurify from 'dompurify';
 import EditComment from './editComment';
 import CommentLikeButton from '../components/commentLikeButton';
 import ReplyToComment from './replyComment';
+import { BACKEND_URL } from '../config';
 
 const RenderReplies = ({postId}) => {
   const { user, jsonwebtoken } = useContext(AuthContext);
@@ -24,7 +25,7 @@ const htmlDecode = (content) => {
 
 const deleteComment = async (commentId) => {
     try{
-        const res = await axios.delete(`http://localhost:5000/api/comment/${postId}/${commentId}/delete`, { 
+        const res = await axios.delete(`${BACKEND_URL}/api/comment/${postId}/${commentId}/delete`, { 
                 headers: {
                     Authorization: `Bearer ${jsonwebtoken}`,
                 },

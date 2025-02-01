@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import { AuthContext } from '../authContext';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
+import { BACKEND_URL } from '../config';
 
 
  
@@ -13,7 +14,7 @@ const Likes = ({postId}) => {
   useEffect(() =>{
     async function getLikes() {
         try{
-            const res = await axios.get(`http://localhost:5000/api/post/${postId}/likes`);
+            const res = await axios.get(`${BACKEND_URL}/api/post/${postId}/likes`);
             setLikes(res.data.likeCount)
               
         } catch(err){

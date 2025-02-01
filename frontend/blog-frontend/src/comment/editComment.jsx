@@ -6,6 +6,7 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { useNavigate } from 'react-router-dom';
 import DOMPurify from 'dompurify';
+import { BACKEND_URL } from '../config';
  
 const EditComment = ({currentContent, postId, commentId, setEditCommentId}) => {
   const { user, jsonwebtoken } = useContext(AuthContext);
@@ -27,7 +28,7 @@ const EditComment = ({currentContent, postId, commentId, setEditCommentId}) => {
     e.preventDefault();
 
     try{
-        const res = await axios.put(`http://localhost:5000/api/comment/${postId}/${commentId}/edit`, 
+        const res = await axios.put(`${BACKEND_URL}/api/comment/${postId}/${commentId}/edit`, 
             {comment: formData.comment},
             {headers: {
                 Authorization: `Bearer ${jsonwebtoken}`,

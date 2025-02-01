@@ -4,6 +4,7 @@ import {useNavigate} from "react-router-dom";
 import aquilaimage from '../assets/40k_imperial_aquila__transparent__by_fuguestock_d91enql.png'
 import '../styles/signup.css';
 import axios from 'axios';
+import { BACKEND_URL } from '../config';
 
 function Signup() {
 
@@ -31,7 +32,7 @@ function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try{
-      const res = await axios.post('http://localhost:5000/api/auth/signup', formData);
+      const res = await axios.post(`${BACKEND_URL}/api/auth/signup`, formData);
       if(res.status === 201){
         //if the post response status code returns "201" then set the serverResponse useState to the response message and have a slight delay to navagate to login.
         setServerResponse(res.data.message)

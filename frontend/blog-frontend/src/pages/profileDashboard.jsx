@@ -9,6 +9,7 @@ import ProfileSidebar from '../components/profileSidebar';
 // React Tabs
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
+import { BACKEND_URL } from '../config';
 
 const ProfileDashboard = () => {
   const { user, jsonwebtoken } = useContext(AuthContext);
@@ -36,7 +37,7 @@ const ProfileDashboard = () => {
   useEffect(() => {
     async function getUserRecentPosts() {
       try {
-        const res = await axios.get('http://localhost:5000/api/post/user/recent/posts', {
+        const res = await axios.get(`${BACKEND_URL}/api/post/user/recent/posts`, {
           headers: { Authorization: `Bearer ${jsonwebtoken}` },
         });
         setRecentPosts(res.data.getRecentPosts);
@@ -47,7 +48,7 @@ const ProfileDashboard = () => {
 
     async function getUserDraftPosts() {
       try {
-        const res = await axios.get('http://localhost:5000/api/post/user/draft/posts', {
+        const res = await axios.get(`${BACKEND_URL}/api/post/user/draft/posts`, {
           headers: { Authorization: `Bearer ${jsonwebtoken}` },
         });
         setDrafts(res.data.getDraftedPosts);
@@ -58,7 +59,7 @@ const ProfileDashboard = () => {
 
     async function getUserLikedPosts() {
       try {
-        const res = await axios.get('http://localhost:5000/api/post/user/liked/posts', {
+        const res = await axios.get(`${BACKEND_URL}/api/post/user/liked/posts`, {
           headers: { Authorization: `Bearer ${jsonwebtoken}` },
         });
         setLikedPosts(res.data.getLikedPosts);
@@ -69,7 +70,7 @@ const ProfileDashboard = () => {
 
     async function getUserBookmarkedPosts() {
       try {
-        const res = await axios.get('http://localhost:5000/api/post/user/bookmark/posts', {
+        const res = await axios.get(`${BACKEND_URL}/api/post/user/bookmark/posts`, {
           headers: { Authorization: `Bearer ${jsonwebtoken}` },
         });
         setBookmarkPost(res.data.getBookmarkPosts);
@@ -80,7 +81,7 @@ const ProfileDashboard = () => {
 
     async function getUserComments() {
       try {
-        const res = await axios.get('http://localhost:5000/api/comment/user/comments', {
+        const res = await axios.get(`${BACKEND_URL}/api/comment/user/comments`, {
           headers: { Authorization: `Bearer ${jsonwebtoken}` },
         });
         setComments(res.data.getUserComments);
@@ -91,7 +92,7 @@ const ProfileDashboard = () => {
 
     async function getUserPostsNumbers() {
       try {
-        const res = await axios.get('http://localhost:5000/api/post/userpost/numbers', {
+        const res = await axios.get(`${BACKEND_URL}/api/post/userpost/numbers`, {
           headers: { Authorization: `Bearer ${jsonwebtoken}` },
         });
         setPostStats({
@@ -108,7 +109,7 @@ const ProfileDashboard = () => {
 
     async function getUserCommentsNumbers() {
       try {
-        const res = await axios.get('http://localhost:5000/api/comment/numbers', {
+        const res = await axios.get( `${BACKEND_URL}/api/comment/numbers`, {
           headers: { Authorization: `Bearer ${jsonwebtoken}` },
         });
         setCommentsStats(res.data);
@@ -143,8 +144,7 @@ const ProfileDashboard = () => {
         <div className="profile-info">
           <img
             src={
-              user?.profilePicUrl ||
-              'http://localhost:5000/static/blank-profile-picture-973460.svg'
+              user?.profilePicUrl || `${BACKEND_URL}/static/blank-profile-picture-973460.svg`
             }
             alt="Profile Avatar"
             className="profile-avatar"

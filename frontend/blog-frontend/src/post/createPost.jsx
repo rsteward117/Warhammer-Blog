@@ -6,6 +6,7 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { useNavigate } from 'react-router-dom';
 import '../styles/createPost.css';
+import { BACKEND_URL } from '../config';
 
 const CreatePost = () => {
   const { user, jsonwebtoken } = useContext(AuthContext);
@@ -29,8 +30,8 @@ const CreatePost = () => {
   useEffect(() => {
     const fetchTagsAndCategories = async () => {
       try {
-        const tagsRes = await axios.get(`http://localhost:5000/api/post/post/tags`);
-        const categoriesRes = await axios.get(`http://localhost:5000/api/post/post/categories`);
+        const tagsRes = await axios.get(`${BACKEND_URL}/api/post/post/tags`);
+        const categoriesRes = await axios.get(`${BACKEND_URL}/api/post/post/categories`);
 
         setPopularTags(tagsRes.data);
         setPopularCategories(categoriesRes.data);
@@ -54,7 +55,7 @@ const CreatePost = () => {
     data.append('images', images);
 
     try {
-      const res = await axios.post('http://localhost:5000/api/post/createpost', data, {
+      const res = await axios.post(`${BACKEND_URL}/api/post/createpost`, data, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${jsonwebtoken}`,
@@ -85,7 +86,7 @@ const CreatePost = () => {
     data.append('images', images);
 
     try {
-      const res = await axios.post('http://localhost:5000/api/post/draftpost', data, {
+      const res = await axios.post(`${BACKEND_URL}/api/post/draftpost`, data, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${jsonwebtoken}`,
@@ -114,7 +115,7 @@ const CreatePost = () => {
 
     if (name === "category" || name === "tags") {
       try {
-        const res = await axios.get(`http://localhost:5000/api/post/search/suggestions?term=${value}`);
+        const res = await axios.get(`${BACKEND_URL}/api/post/search/suggestions?term=${value}`);
         const { searchCategories, searchTags } = res.data;
         if (name === "category") {
           setCategorySuggestions(searchCategories);

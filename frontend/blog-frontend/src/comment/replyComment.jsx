@@ -6,6 +6,7 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { useNavigate } from 'react-router-dom';
 import DOMPurify from 'dompurify';
+import { BACKEND_URL } from '../config';
  
 const ReplyToComment = ({postId, commentId, setReplyId}) => {
   const { user, jsonwebtoken } = useContext(AuthContext);
@@ -27,7 +28,7 @@ const ReplyToComment = ({postId, commentId, setReplyId}) => {
     e.preventDefault();
 
     try{
-        const res = await axios.post(`http://localhost:5000/api/comment/${postId}/${commentId}/createReply`, 
+        const res = await axios.post(`${BACKEND_URL}/api/comment/${postId}/${commentId}/createReply`, 
             {comment: formData.comment},
             {headers: {
                 Authorization: `Bearer ${jsonwebtoken}`,

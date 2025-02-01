@@ -7,6 +7,7 @@ import EditComment from './editComment';
 import CommentLikeButton from '../components/commentLikeButton';
 import ReplyToComment from './replyComment';
 import '../styles/comments.css';
+import { BACKEND_URL } from '../config';
 
 const Comments = ({ postId }) => {
   const { user, jsonwebtoken } = useContext(AuthContext);
@@ -19,7 +20,7 @@ const Comments = ({ postId }) => {
   useEffect(() => {
     async function getComments() {
       try {
-        const res = await axios.get(`http://localhost:5000/api/comment/${postId}/comments`);
+        const res = await axios.get(`${BACKEND_URL}/api/comment/${postId}/comments`);
         setComments(res.data.getAllPostComments);
       } catch (err) {
         setGetErrors(err.response?.data?.message || "Failed to load comments");
@@ -37,7 +38,7 @@ const Comments = ({ postId }) => {
   const deleteComment = async (commentId) => {
     try {
       const res = await axios.delete(
-        `http://localhost:5000/api/comment/${postId}/${commentId}/delete`,
+        `${BACKEND_URL}/api/comment/${postId}/${commentId}/delete`,
         { headers: { Authorization: `Bearer ${jsonwebtoken}` } }
       );
       if (res.status === 200) {

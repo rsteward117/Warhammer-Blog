@@ -4,6 +4,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import ProfileSidebar from './profileSidebar';
 import '../styles/userProfileManagement.css';
+import { BACKEND_URL } from '../config';
 
 const UserProfileManagement = () => {
   const { user, jsonwebtoken } = useContext(AuthContext);
@@ -36,7 +37,7 @@ const UserProfileManagement = () => {
     newFormData.append('profilepic', profilePic);
 
     try {
-      const res = await axios.post('http://localhost:5000/api/user/profilepic', newFormData, {
+      const res = await axios.post(`${BACKEND_URL}/api/user/profilepic`, newFormData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           Authorization: `Bearer ${jsonwebtoken}`,
@@ -58,7 +59,7 @@ const UserProfileManagement = () => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        'http://localhost:5000/api/user/username',
+        `${BACKEND_URL}/api/user/username`,
         { username: formData.username },
         {
           headers: {
@@ -81,7 +82,7 @@ const UserProfileManagement = () => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        'http://localhost:5000/api/user/bio',
+        `${BACKEND_URL}/api/user/bio`,
         { bio: formData.bio },
         {
           headers: {
@@ -155,7 +156,7 @@ const UserProfileManagement = () => {
 
           <h2 className="section-title">Current Profile Picture</h2>
           <img
-            src={user.profilePicUrl}
+            src={user.profilePicUrl || `${BACKEND_URL}/static/blank-profile-picture-973460.svg`}
             alt="Profile"
             className="profile-pic-display"
           />

@@ -5,6 +5,7 @@ import axios from 'axios';
 import DOMPurify from 'dompurify';
 import LoadingSpinner from '../components/loadingspinner';
 import '../styles/previewPost.css'; // Make sure to create and import this CSS file
+import { BACKEND_URL } from '../config';
 
 const PreviewPost = () => {
   const { user, jsonwebtoken } = useContext(AuthContext);
@@ -16,7 +17,7 @@ const PreviewPost = () => {
   useEffect(() =>{
     async function getPost() {
       try {
-        const res = await axios.get(`http://localhost:5000/api/post/${postId}`, {
+        const res = await axios.get(`${BACKEND_URL}/api/post/${postId}`, {
           headers: { Authorization: `Bearer ${jsonwebtoken}` }
         });
         setPosts(res.data);
@@ -33,7 +34,7 @@ const PreviewPost = () => {
 
   const publishPost = async () => {
     try {
-      await axios.put(`http://localhost:5000/api/post/${postId}/publish`, {}, {
+      await axios.put(`${BACKEND_URL}/api/post/${postId}/publish`, {}, {
         headers: { Authorization: `Bearer ${jsonwebtoken}` }
       });
       navigate('/userposts');
@@ -44,7 +45,7 @@ const PreviewPost = () => {
 
   const deletePost = async () => {
     try {
-      await axios.delete(`http://localhost:5000/api/post/${postId}/deletepost`, {
+      await axios.delete(`${BACKEND_URL}/api/post/${postId}/deletepost`, {
         headers: { Authorization: `Bearer ${jsonwebtoken}` }
       });
       navigate('/userposts');

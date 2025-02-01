@@ -5,6 +5,7 @@ import axios from 'axios';
 import '../styles/adminDashboard.css';
 import AdminSidebar from '../components/adminSidebar';
 import AdminHeader from '../components/adminHeader';
+import { BACKEND_URL } from '../config';
 
 const PostManagement = () => {
   const { user, jsonwebtoken } = useContext(AuthContext);
@@ -21,7 +22,7 @@ const PostManagement = () => {
 
     async function getPosts() {
         try{
-            const res = await axios.get('http://localhost:5000/api/post/allposts', {headers: {Authorization: `Bearer ${jsonwebtoken}`}})
+            const res = await axios.get(`${BACKEND_URL}/api/post/allposts`, {headers: {Authorization: `Bearer ${jsonwebtoken}`}})
             setPosts(res.data.getAllPost);
         } catch(err){
             setGetErrors("failed to get all posts")          
@@ -30,7 +31,7 @@ const PostManagement = () => {
 
     async function getPostStats() {
         try{
-            const res = await axios.get('http://localhost:5000/api/post/allposts/numbers', {headers: {Authorization: `Bearer ${jsonwebtoken}`}})
+            const res = await axios.get(`${BACKEND_URL}/api/post/allposts/numbers`, {headers: {Authorization: `Bearer ${jsonwebtoken}`}})
             setPostStats(res.data)
         } catch(err){
             console.err('Error fetching post statistics:', err);

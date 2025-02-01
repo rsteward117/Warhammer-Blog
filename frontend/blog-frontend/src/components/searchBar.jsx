@@ -3,6 +3,7 @@ import { AuthContext } from '../authContext';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import '../styles/searchBar.css';
+import { BACKEND_URL } from '../config';
 
  
 const SearchBar = () => {
@@ -19,7 +20,7 @@ const SearchBar = () => {
     e.preventDefault();
 
     try{
-      const res = await axios.get("http://localhost:5000/api/post/search", {
+      const res = await axios.get(`${BACKEND_URL}/api/post/search`, {
         params: {term: formData.search}
       });
       setSearchResults(res.data);

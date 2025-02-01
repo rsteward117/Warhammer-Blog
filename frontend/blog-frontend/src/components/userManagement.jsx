@@ -5,6 +5,7 @@ import axios from 'axios';
 import '../styles/adminDashboard.css';
 import AdminSidebar from '../components/adminSidebar';
 import AdminHeader from '../components/adminHeader';
+import { BACKEND_URL } from '../config';
 
 const UserManagement = () => {
   const { user, jsonwebtoken } = useContext(AuthContext);
@@ -16,7 +17,7 @@ const UserManagement = () => {
   useEffect(() =>{
     async function getUsers() {
         try{
-            const res = await axios.get('http://localhost:5000/api/user/allUsers', {headers: {Authorization: `Bearer ${jsonwebtoken}`}})
+            const res = await axios.get(`${BACKEND_URL}/api/user/allUsers`, {headers: {Authorization: `Bearer ${jsonwebtoken}`}})
             setUsers(res.data.getAllUsers);
         } catch(err){
             setGetErrors("failed to get users")          
@@ -25,7 +26,7 @@ const UserManagement = () => {
 
     async function getUsersNumbers() {
         try{
-            const res = await axios.get('http://localhost:5000/api/user/user/numbers', {headers: {Authorization: `Bearer ${jsonwebtoken}`}})
+            const res = await axios.get(`${BACKEND_URL}/api/user/user/numbers`, {headers: {Authorization: `Bearer ${jsonwebtoken}`}})
             setUserStats(res.data.getUserNumber);
         } catch(err){
             setGetErrors("failed to get users")          
@@ -37,7 +38,7 @@ const UserManagement = () => {
 
 const promoteUser = async (userId, newRole) => {
     try{
-        const res = await axios.put(`http://localhost:5000/api/user/${userId}/promote`, {role: newRole}, {headers: {Authorization: `Bearer ${jsonwebtoken}`}})
+        const res = await axios.put(`${BACKEND_URL}/api/user/${userId}/promote`, {role: newRole}, {headers: {Authorization: `Bearer ${jsonwebtoken}`}})
         window.location.reload();
     }catch(err){
         setGetErrors(err.response.data.message)
@@ -78,7 +79,7 @@ const promoteUser = async (userId, newRole) => {
               <tbody>
                 {users.map(user => (
                   <tr key={user.id}>
-                  <td><img src={user.profilePicUrl} width="100px" alt="user's profile picture"/></td>
+                  <td><img src={user.profilePicUrl || `${BACKEND_URL}/static/blank-profile-picture-973460.svg` } width="100px" alt="user's profile picture"/></td>
                   <td>{user.username}</td>
                   <td>{user.role}</td>
                   <td>

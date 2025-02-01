@@ -3,6 +3,7 @@ import { AuthContext } from '../authContext';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import '../styles/userPosts.css'; // Make sure to import the new CSS file
+import { BACKEND_URL } from '../config';
 
 const UserPosts = () => {
   const { user, jsonwebtoken } = useContext(AuthContext);
@@ -13,7 +14,7 @@ const UserPosts = () => {
   useEffect(() => {
     async function getUserposts() {
       try {
-        const res = await axios.get('http://localhost:5000/api/post/userpost', {
+        const res = await axios.get(`${BACKEND_URL}/api/post/userpost`, {
           headers: { Authorization: `Bearer ${jsonwebtoken}` }
         });
         setUserposts(res.data.getUserPost);
@@ -30,7 +31,7 @@ const UserPosts = () => {
 
   const publishPost = async (postId) => {
     try {
-      await axios.put(`http://localhost:5000/api/post/${postId}/publish`, {}, {
+      await axios.put(`${BACKEND_URL}/api/post/${postId}/publish`, {}, {
         headers: { Authorization: `Bearer ${jsonwebtoken}` }
       });
       setTimeout(() => {
@@ -43,7 +44,7 @@ const UserPosts = () => {
 
   const deletePost = async (postId) => {
     try {
-      await axios.delete(`http://localhost:5000/api/post/${postId}/deletepost`, {
+      await axios.delete(`${BACKEND_URL}/api/post/${postId}/deletepost`, {
         headers: { Authorization: `Bearer ${jsonwebtoken}` }
       });
       window.location.reload();

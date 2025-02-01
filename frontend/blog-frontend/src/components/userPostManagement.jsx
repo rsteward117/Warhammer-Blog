@@ -4,6 +4,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import ProfileSidebar from './profileSidebar';
 import '../styles/userPostManagement.css'; 
+import { BACKEND_URL } from '../config';
 
 const UserPostManagement = () => {
   const { user, jsonwebtoken } = useContext(AuthContext);
@@ -18,7 +19,7 @@ const UserPostManagement = () => {
   useEffect(() => {
     async function getUserposts() {
       try {
-        const res = await axios.get('http://localhost:5000/api/post/userpost', {
+        const res = await axios.get(`${BACKEND_URL}/api/post/userpost`, {
           headers: { Authorization: `Bearer ${jsonwebtoken}` }
         });
         setUserposts(res.data.getUserPost);
@@ -29,7 +30,7 @@ const UserPostManagement = () => {
 
     async function getUserpostsNumbers() {
       try {
-        const res = await axios.get('http://localhost:5000/api/post/userpost/numbers', {
+        const res = await axios.get(`${BACKEND_URL}/api/post/userpost/numbers`, {
           headers: { Authorization: `Bearer ${jsonwebtoken}` }
         });
         setPostStats({
@@ -55,7 +56,7 @@ const UserPostManagement = () => {
 
   const publishPost = async (postId) => {
     try {
-      await axios.put(`http://localhost:5000/api/post/${postId}/publish`, {}, {
+      await axios.put(`${BACKEND_URL}/api/post/${postId}/publish`, {}, {
         headers: { Authorization: `Bearer ${jsonwebtoken}` }
       });
       setTimeout(() => {
@@ -68,7 +69,7 @@ const UserPostManagement = () => {
 
   const deletePost = async (postId) => {
     try {
-      await axios.delete(`http://localhost:5000/api/post/${postId}/deletepost`, {
+      await axios.delete(`${BACKEND_URL}/api/post/${postId}/deletepost`, {
         headers: { Authorization: `Bearer ${jsonwebtoken}` }
       });
       window.location.reload();
@@ -132,7 +133,7 @@ const UserPostManagement = () => {
                   <span>{post.title}</span>
                   <span> 
                       <img
-                      src={post.postImageUrl}
+                      src={post.postImageUrl || `${BACKEND_URL}/static/blank-profile-picture-973460.svg`}
                       alt={post.title}
                       className="user-post-image"
                     />

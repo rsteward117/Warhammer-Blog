@@ -67,7 +67,7 @@ function Nav() {
         {user && (
           <Link to="/profiledashboard">
             <img
-              src={user.profilePicUrl || 'http://localhost:5000/static/blank-profile-picture-973460.svg'}
+              src={user.profilePicUrl || `${BACKEND_URL}/static/blank-profile-picture-973460.svg`}
               alt="Profile"
               className="profile-pic"
             />

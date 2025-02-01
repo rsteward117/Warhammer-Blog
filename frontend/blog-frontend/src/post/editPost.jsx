@@ -7,6 +7,7 @@ import 'react-quill/dist/quill.snow.css';
 import { useNavigate, useParams } from 'react-router-dom';
 import DOMPurify from 'dompurify';
 import '../styles/editPost.css'; 
+import { BACKEND_URL } from '../config';
 
 const EditPost = () => {
   const { user, jsonwebtoken } = useContext(AuthContext);
@@ -30,7 +31,7 @@ const EditPost = () => {
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/post/${postId}`, { 
+        const res = await axios.get(`${BACKEND_URL}/api/post/${postId}`, { 
           headers: { Authorization: `Bearer ${jsonwebtoken}` } 
         });
 
@@ -63,7 +64,7 @@ const EditPost = () => {
     }
 
     try {
-      await axios.put(`http://localhost:5000/api/post/${postId}/edit`, data, {
+      await axios.put(`${BACKEND_URL}/api/post/${postId}/edit`, data, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${jsonwebtoken}`,
@@ -89,7 +90,7 @@ const EditPost = () => {
     }
 
     try {
-      const res = await axios.put(`http://localhost:5000/api/post/${postId}/draftpost/edit`, data, {
+      const res = await axios.put(`${BACKEND_URL}/api/post/${postId}/draftpost/edit`, data, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${jsonwebtoken}`,
@@ -118,7 +119,7 @@ const EditPost = () => {
     // Fetch suggestions for categories or tags
     if (name === "category" || name === "tags") {
       try {
-        const res = await axios.get(`http://localhost:5000/api/post/search/suggestions?term=${value}`);
+        const res = await axios.get(`${BACKEND_URL}/api/post/search/suggestions?term=${value}`);
         const { searchCategories, searchTags } = res.data;
         if (name === "category") {
           setCategorySuggestions(searchCategories);

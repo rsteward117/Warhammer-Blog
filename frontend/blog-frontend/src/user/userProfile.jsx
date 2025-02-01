@@ -15,7 +15,7 @@ const UserProfile = () => {
   useEffect(() => {
     async function getUser() {
         try{
-            const res = await axios.get(`http://localhost:5000/api/user/${userId}`, {}, )
+            const res = await axios.get(`${BACKEND_URL}/api/user/${userId}`, {}, )
             setUserProfile(res.data);
         }catch(err){
             setGetErrors();

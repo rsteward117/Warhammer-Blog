@@ -3,6 +3,7 @@ import { AuthContext } from '../authContext';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 import { IoIosHeartEmpty, IoIosHeart } from "react-icons/io";
+import { BACKEND_URL } from '../config';
 
  
 const CommentLikeButton = ({commentId}) => {
@@ -14,7 +15,7 @@ const CommentLikeButton = ({commentId}) => {
   useEffect(() =>{
     async function fetchPostLikeData() {
         try{
-          const likeCounterRes = await axios.get(`http://localhost:5000/api/comment/${commentId}/likes`);
+          const likeCounterRes = await axios.get(`${BACKEND_URL}/api/comment/${commentId}/likes`);
           setLikeCount(likeCounterRes.data.likeCount);
 
         //   const likeStatusRes = await axios.get(`http://localhost:5000/api/comment/${commentId}/isLiked`, {}, {
@@ -40,7 +41,7 @@ const CommentLikeButton = ({commentId}) => {
     e.preventDefault();
 
     try{
-      const res = await axios.post(`http://localhost:5000/api/comment/${commentId}/like`, {}, {
+      const res = await axios.post(`${BACKEND_URL}/api/comment/${commentId}/like`, {}, {
         headers: {
             Authorization:  `Bearer ${jsonwebtoken}`,
             'Content-Type': 'application/json'

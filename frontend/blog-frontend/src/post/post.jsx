@@ -9,6 +9,7 @@ import '../styles/post.css';
 import LoadingSpinner from '../components/loadingspinner';
 import LikeButton from '../components/postLikeButton';
 import BookmarkButton from '../components/postBookmarkButton';
+import { BACKEND_URL } from '../config';
 
 const Post = () => {
   const { user, jsonwebtoken } = useContext(AuthContext);
@@ -21,7 +22,7 @@ const Post = () => {
   useEffect(() => {
     async function getPost() {
       try {
-        const res = await axios.get(`http://localhost:5000/api/post/${postId}`);
+        const res = await axios.get(`${BACKEND_URL}/api/post/${postId}`);
         setPosts(res.data);
       } catch (err) {
         setGetErrors(err.response?.data?.message || "An error occurred");
@@ -33,7 +34,7 @@ const Post = () => {
   const handleSearchTerm = async (term) => {
 
     try{
-      const res = await axios.get("http://localhost:5000/api/post/search/tags/category", {
+      const res = await axios.get(`${BACKEND_URL}/api/post/search/tags/category`, {
         params: {term: term}
       });
       setSearchResults(res.data);
@@ -82,7 +83,7 @@ const Post = () => {
       <div className="post-author-section">
           <img
             onClick={() => displayUserProfile(post.author.id)}
-            src={post.author.profilePicUrl}
+            src={post.author.profilePicUrl || `${BACKEND_URL}/static/blank-profile-picture-973460.svg`}
             alt="User profile picture"
             className="post-author-img"
           />

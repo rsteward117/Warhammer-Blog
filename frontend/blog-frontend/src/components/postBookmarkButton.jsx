@@ -3,6 +3,7 @@ import { AuthContext } from '../authContext';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 import { FaBookmark, FaRegBookmark } from "react-icons/fa";
+import { BACKEND_URL } from '../config';
 
  
 const BookmarkButton = ({postId}) => {
@@ -16,7 +17,7 @@ const BookmarkButton = ({postId}) => {
     e.preventDefault();
 
     try{
-      const res = await axios.post(`http://localhost:5000/api/post/${postId}/bookmark`, {}, {
+      const res = await axios.post(`${BACKEND_URL}/api/post/${postId}/bookmark`, {}, {
         headers: {
             Authorization:  `Bearer ${jsonwebtoken}`,
             'Content-Type': 'application/json'

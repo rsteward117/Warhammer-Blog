@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { AuthContext } from '../authContext';
 import axios from 'axios';
+import { BACKEND_URL } from '../config';
 
 const Profile = () => {
   const { user, jsonwebtoken } = useContext(AuthContext);
@@ -28,7 +29,7 @@ const Profile = () => {
     formData.append("profilepic", profilePic)
 
     try{
-      const res = await axios.post("http://localhost:5000/api/user/profilepic", formData,{
+      const res = await axios.post(`${BACKEND_URL}/api/user/profilepic`, formData,{
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization:  `Bearer ${jsonwebtoken}`,
@@ -49,7 +50,7 @@ const Profile = () => {
   const handleUsernameSubmit = async (e) => {
     e.preventDefault();
     try{
-      const res = await axios.post('http://localhost:5000/api/user/username', 
+      const res = await axios.post(`${BACKEND_URL}/api/user/username`, 
         {username: formData.username},
       {
         headers: {
@@ -70,7 +71,7 @@ const Profile = () => {
   const handleBioSubmit = async (e) => {
     e.preventDefault();
     try{
-      const res = await axios.post('http://localhost:5000/api/user/bio', 
+      const res = await axios.post(`${BACKEND_URL}/api/user/bio`, 
         {bio: formData.bio},
       {
         headers: {

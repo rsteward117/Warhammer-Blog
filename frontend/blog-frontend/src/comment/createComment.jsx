@@ -5,6 +5,7 @@ import {TextField, Box, Grid, Button, Grid2} from '@mui/material';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { useNavigate } from 'react-router-dom';
+import { BACKEND_URL } from '../config';
  
 const CreateComment = ({ postId }) => {
   const { user, jsonwebtoken } = useContext(AuthContext);
@@ -20,7 +21,7 @@ const CreateComment = ({ postId }) => {
 
 
     try{
-        const res = await axios.post(`http://localhost:5000/api/comment/${postId}/createcomment`, {comment: formData.comment} ,{
+        const res = await axios.post(`${BACKEND_URL}/api/comment/${postId}/createcomment`, {comment: formData.comment} ,{
           headers: {
             Authorization:  `Bearer ${jsonwebtoken}`,
             'Content-Type': 'application/json'
