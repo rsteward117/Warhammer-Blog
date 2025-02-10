@@ -1,191 +1,198 @@
-/* Container that wraps sidebar + main content */
-.user-post-management-container {
-    display: flex;
-    background-color: #1a1a1a;
-    min-height: 100vh;
-    font-family: 'Roboto', sans-serif; /* or any gothic font you prefer */
-    color: #f2f2f2;
-  }
-  
-  /* Main Content area to the right of the sidebar */
-  .user-post-management-content {
-    flex: 1;
-    margin-left: 250px; /* matches the width of the ProfileSidebar */
-    padding: 2rem;
-  }
-  
-  /* Header section */
-  .user-post-management-header {
-    margin-bottom: 2rem;
-    border-bottom: 1px solid #444;
-    padding-bottom: 1rem;
-  }
-  
-  .user-post-management-title {
-    font-size: 2rem;
-    margin: 0;
-    color: #C9B037; /* Gold accent for Warhammer vibe */
-  }
-  
-  .user-post-management-subtitle {
-    margin-top: 0.5rem;
-    color: #999;
-  }
-  
-  /* Analytics / Stats Cards */
-  .post-analytics {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 2rem;
-  }
-  
-  .analytics-card {
-    flex: 1;
-    background-color: #262626;
-    border: 1px solid #333;
-    border-radius: 6px;
-    padding: 1rem;
-    text-align: center;
-  }
-  
-  .analytics-card h2 {
-    margin: 0;
-    color: #C9B037;
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .analytics-card p {
-    font-size: 1.5rem;
-    color: #ff3f3f; /* Grimdark red accent */
-  }
-  
-  /* Posts Management List Section */
-  .posts-management-list {
-    background-color: #1a1a1a;
-    padding: 1rem 0;
-  }
-  
-  .section-title {
-    font-size: 1.5rem;
-    color: #C9B037;
-    margin-bottom: 1rem;
-  }
-  
-  /* Table / Listing Layout */
-  .posts-table {
-    border: 1px solid #333;
-    border-radius: 6px;
-    overflow: hidden;
-    background-color: #262626;
-    color: #f2f2f2;
-  }
-  
-  .table-header,
-  .table-row {
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr 1fr 1fr 1fr 2fr; /* Adjust columns for your data */
-    padding: 1rem;
-    border-bottom: 1px solid #444;
-  }
-  
-  .table-header {
-    background-color: #333;
-    font-weight: 600;
-    color: #999;
-  }
-  
-  .table-row {
-    align-items: center;
-    gap: 1rem;
-  }
-  
-  .table-row:hover {
-    background-color: #303030;
-  }
-  
-  /* Actions Cell */
-  .actions-cell {
-    display: flex;
-    gap: 0.5rem;
-  }
-  
-  /* Buttons */
-  .edit-button,
-  .preview-button
-  .delete-button {
-    border: none;
-    padding: 0.5rem 0.75rem;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: #fff;
-    background-color: #8B0000; /* dark red */
-  }
-  
-  .edit-button {
-    background-color: #004d00; /* dark green or pick a color you like */
-  }
 
-  .preview-button{
-    background-color: blue;
-  }
-
-  .preview-button:hover{
-    background-color: lightblue;
-  }
-  
-  .edit-button:hover {
-    background-color: #007200;
-  }
-  
-  .delete-button:hover {
-    background-color: #ff3f3f;
-  }
-
-
-/* Container for the "Create New Post" button */
-.create-post-container {
-  margin-top: 1rem;
-  text-align: left; /* Or center/right - your choice */
+ .user-post-management-wrapper {
+  display: flex;
+  flex-direction: column; 
+  min-height: 100vh;
+  width: 100%;
+  background-color: #1a1a1a;
+  color: #f2f2f2;
+  margin-left: 2.5rem;
+  font-family: 'Roboto', sans-serif;
 }
 
-/* 
-  The create post button, reminiscent of Reddit's "Create Post":
-  - Blue background (#0079D3 is close to Reddit's brand color)
-  - White text
-  - Slightly rounded corners
-  - A plus icon to the left 
-*/
-.create-post-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem; /* space between icon and text */
-  background-color: #0079D3; /* Reddit brand-like blue */
-  color: #ffffff; 
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 9999px; /* makes it pill-shaped */
-  font-size: 1rem;
+
+  /* Main Content  */
+
+.user-post-management-content {
+  width: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.user-post-management-header {
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #444;
+  padding-bottom: 1rem;
+}
+
+.user-post-management-title {
+  font-size: 1.8rem;
+  margin: 0;
+  color: #C9B037; 
+}
+
+.user-post-management-subtitle {
+  margin-top: 0.5rem;
+  color: #999;
+}
+
+
+/* Stats Cards */
+
+.post-analytics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  margin-bottom: 2rem;
+}
+
+.analytics-card {
+  flex: 1;
+  background-color: #262626;
+  border: 1px solid #333;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.analytics-card h2 {
+  margin: 0;
+  color: #C9B037;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.analytics-card p {
+  font-size: 1.5rem;
+  color: #ff3f3f; 
+}
+
+
+/* Posts Management List */
+
+.posts-management-list {
+  background-color: #1a1a1a;
+  padding: 1rem 0;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  color: #C9B037;
+  margin-bottom: 1rem;
+}
+
+.error-message {
+  color: #ff4500;
+  margin-bottom: 1rem;
+}
+
+
+.posts-table {
+  border: 1px solid #333;
+  border-radius: 6px;
+  overflow: auto;  
+  background-color: #262626;
+  color: #f2f2f2;
+  width: 100%;
+}
+
+.table-header,
+.table-row {
+  display: grid;
+  grid-template-columns: 1.2fr 1.5fr 1fr 1fr 1fr 1fr 2fr;
+  padding: 1rem;
+  border-bottom: 1px solid #444;
+  min-width: 680px;
+}
+
+.table-header {
+  background-color: #333;
   font-weight: 600;
+  color: #999;
+}
+
+.table-row {
+  align-items: center;
+  gap: 1rem;
+}
+
+.table-row:hover {
+  background-color: #303030;
+}
+
+.user-post-image {
+  max-width: 80px;
+  border-radius: 4px;
+}
+
+/* Actions Cell */
+.actions-cell {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+
+/* Buttons */
+
+.edit-button,
+.preview-button,
+.delete-button {
+  border: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
   cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #fff;
+  background-color: #8B0000; 
   transition: background-color 0.2s ease;
 }
 
-.create-post-button:hover {
-  background-color: #1484d6; /* slightly lighter/darker on hover */
+.edit-button {
+  background-color: #006400; 
+}
+.edit-button:hover {
+  background-color: #008000;
 }
 
-/* 
-  Optional: style the plus icon inside the button
-  to look a bit more in line with Reddit's style 
-*/
-.plus-icon {
-  font-size: 1.2rem;
-  font-weight: bold;
-  line-height: 1;
+.preview-button {
+  background-color: #00008B; 
+}
+.preview-button:hover {
+  background-color: #0000CD; 
+}
+
+.delete-button:hover {
+  background-color: #ff3f3f;
+}
+
+@media (min-width: 768px) {
+  .user-post-management-wrapper {
+    flex-direction: row;
+  }
+
+  .user-post-management-content {
+    width: auto;
+    flex: 1;
+    padding: 2rem;
+  }
+
+  .user-post-management-title {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+  .posts-table {
+    margin-left: 2rem;
+  }
+
 }
 
 
-  
+@media (min-width: 993px) {
+  .posts-table {
+    margin-left: 2rem;
+  }
+
+}

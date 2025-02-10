@@ -3,7 +3,7 @@
     background: #1a1a1a; /* Grimdark background */
     color: #ffffff;
     font-family: 'Lora', serif;
-    padding: 20px;
+    padding: .5rem;
     box-sizing: border-box;
     border: 2px solid #cfcdc1;
     border-radius: 8px;
@@ -40,8 +40,8 @@
 }
 
 .comment-author-img {
-    width: 50px;
-    height: 50px;
+    width: 1rem;
+    height: 1rem;
     border-radius: 50%;
     border: 2px solid #FFD700;
     cursor: pointer;
@@ -77,7 +77,7 @@
 }
 
 .comment-body {
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
 }
 
 .comment-content {
@@ -87,8 +87,7 @@
     background-color: #2d2d2d;
     border: 2px solid #708090;
     border-radius: 8px;
-    padding: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 1rempx;
     color: #ffffff;
 }
 
@@ -126,9 +125,8 @@
 .comment-reply-wrapper {
     width: 100%;
     box-sizing: border-box;
-    padding: 10px 0;
     border-top: 1px dashed #708090;
-    margin-top: 10px;
+    margin-top: 1rem;
 }
 
 .comment-reply-wrapper .comment {
@@ -144,16 +142,16 @@
 @media (max-width: 768px) {
     .comment-content {
         font-size: 0.95rem;
-        padding: 8px;
+        padding: 1rem;
     }
 
     .comment-action-button {
         font-size: 0.8rem;
         padding: 4px 8px;
     }
-
+    
     .comment-author-img {
-        width: 40px;
-        height: 40px;
+        width: 1.5rem;
+        height: 1.5rem;
     }
 }

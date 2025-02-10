@@ -1,46 +1,45 @@
 /* General container styling */
 .homepage-container {
+  min-height: auto;
+  width: 100%;
     position: relative;
-    padding: 20px;
     margin: 0 auto;
-    width: 100%;
-    max-width: 1200px;
-    color: #FAF9F6; /* Light text for contrast */
-    font-family: 'Cinzel', serif; /* Gothic font for Warhammer style */
+    color: #FAF9F6; 
+    font-family: 'Cinzel', serif; 
     background: transparent;
   }
   
   .homepage-header {
     position: relative;
-    padding: 40px 20px;
+    padding: 2rem;
     border-bottom: 5px solid #FFD700;
-    border-radius: 10px;
-    margin-bottom: 30px;
+    border-radius: 30px;
+    margin-bottom: 1rem;
     display: flex;
-    align-items: center; /* Vertically align items */
+    align-items: center; 
     flex-direction: column;
   }
 
 .header-content{
-    display: flex; /* Arrange h1 and images horizontally */
+    display: flex; 
     align-items: center;
     justify-content: center;
-    gap: 10px; /* Space between the h1 and images */
+    gap: 1rem; 
 }
 
   .header-aquila{
-    width: 200px; /* Set a specific width */
+    width: 6rem; 
     height: auto;
   }
 
   .header-aquila.left{
     margin-right: auto;
-    margin-right: 10px;
+    margin-right: 1rem;
   }
 
   .header-aquila.right{
     margin-left: auto;
-    margin-left: 10px;
+    margin-left: 1rem;
   }
   
   /* Header styling */
@@ -48,7 +47,7 @@
     text-align: center;
     font-weight: 500;
     color: #FFD700; /* Gold color for imperial design */
-    margin-bottom: 20px;
+    margin-bottom: 1rem;
     text-shadow: 2px 2px 5px #000;
     text-shadow: 0 0 10px #FFD700, 0 0 20px black;
     animation: glow 6s infinite alternate;
@@ -66,7 +65,7 @@
 .homepage-header p{
     font-size: 1.5rem;
     font-weight: 500;
-    margin-top: 10px;
+    margin-top: 1rem;
     text-align: center;
 }
   
@@ -88,16 +87,16 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
   }
   
   /* Post card design */
   .post-card {
     background-color: #2C2C2E;
     border: 10px solid #2C2C2E; /* Gold border for imperial theme */
-    border-radius: 15px;
+    border-radius: 1rem;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8); /* Shadow for depth */
-    width: 60%;
-    height: 70vh;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   
@@ -109,7 +108,7 @@
   /* Post image styling */
   .post-image-container {
     width: 100%;
-    height: 45%;
+    height: 30%;
     overflow: hidden;
     position: relative;
     margin-top: 1rem;
@@ -161,4 +160,31 @@
       height: 75%;
     }
   }
+
+@media (min-width: 769px) and (max-width: 992px) {
+  .post-card {
+    background-color: #2C2C2E;
+    border: 10px solid #2C2C2E; /* Gold border for imperial theme */
+    border-radius: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8); /* Shadow for depth */
+    width: 40%;
+    height: 80%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+}
+
+
+@media (min-width: 993px) {
+  .post-card {
+    background-color: #2C2C2E;
+    border: 10px solid #2C2C2E; /* Gold border for imperial theme */
+    border-radius: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8); /* Shadow for depth */
+    width: 40%;
+    height: 60%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+}
   

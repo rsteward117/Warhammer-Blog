@@ -2,7 +2,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 10%;
+    width: 6%;
     height: 100vh;
     background-color: #000000; /* Dark side for Warhammer vibe */
     color: #f2f2f2;
@@ -25,11 +25,12 @@
     list-style: none;
     padding: 0;
     margin: 0;
-    width: 70%;
+    width: 100%;
+    margin-top: 5rem;
   }
   
   .profile-sidebar-menu-item {
-    margin-bottom: 1rem;
+    margin-bottom: 3rem;
     cursor: pointer;
     padding: 0.5rem;
     border-radius: 4px;
@@ -43,4 +44,44 @@
     background-color: #660000; /* Dark red on hover */
     color: #fff;
   }
+
+  /* Hamburger Menu Icon */
+  .profile-sidebar-hamburger{
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.bar {
+  width: 30px;
+  height: 3px;
+  background-color: #FFD700;
+  transition: transform 0.3s;
+}
+
+.profile-sidebar-hamburger .bar.open:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.profile-sidebar-hamburger .bar.open:nth-child(2) {
+  opacity: 0;
+}
+
+.profile-sidebar-hamburger .bar.open:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+  /* Show Hamburger Menu on Small Screens */
+@media (max-width: 768px) {
+  .profile-sidebar-menu {
+    display: none;
+  }
+
+  .profile-sidebar-hamburger {
+    display: flex; /* Show hamburger menu */
+    margin-top: 4rem;
+  }
+
+}
   

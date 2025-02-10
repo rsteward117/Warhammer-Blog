@@ -1,64 +1,78 @@
-/* Container for the main content of the profile dashboard */
-.profile-dashboard-container {
-  margin-left: 100px; 
-  padding: 2rem;
+/* Main Wrapper */
+.profile-dashboard {
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
-  background-color: #1a1a1a; /* Grimdark background */
+  margin-left: 6rem;
+  background-color: #1a1a1a;
   color: #f2f2f2;
-  font-family: 'Roboto', sans-serif; /* or a Gothic-themed font for 40k vibes */
+  font-family: 'Roboto', sans-serif;
 }
 
-/* Header section */
+.profile-title {
+  margin: 0 0 1rem 0;
+  color: #C9B037; /* Gold */
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+/*  Main Content  */
+.profile-dashboard-content {
+  width: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+/* Header (User Info) */
 .profile-dashboard-header {
   margin-bottom: 2rem;
-  width: 100%;
   border-bottom: 1px solid #444;
   padding-bottom: 1rem;
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* stack on small screens */
+  gap: 1rem;
 }
 
 .profile-info {
   display: flex;
+  flex-direction: column; /* stack name + avatar in a column on mobile */
   gap: 1rem;
   align-items: center;
+  text-align: center;
 }
 
-/* Profile Avatar */
 .profile-avatar {
   width: 100px;
   height: 100px;
   object-fit: cover;
   border-radius: 50%;
-  border: 2px solid #C9B037; /* Gold accent border */
+  border: 2px solid #C9B037; 
 }
 
 .profile-dashboard-title {
-  font-size: 2rem;
-  color: #C9B037; /* Gold accent */
+  font-size: 1.6rem;
+  color: #C9B037; 
   margin: 0;
 }
 
-.profile-dashboard-subtitle  {
-  font-size: 1.5rem !important;
-  font-weight: 700 !important;
-  color: #999;
-  font-style: italic;
-}
-
 .profile-email {
-  font-size: 1rem !important;
-  font-weight: 700 !important;
-  margin-top: 0.30rem;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-top: 0.3rem;
   color: #bbb;
-  font-size: 0.9rem;
 }
 
-/* Stats / Analytics section */
+.profile-dashboard-subtitle {
+  font-size: 1rem;
+  font-style: italic;
+  color: #999;
+}
+
+/* stats section */
 .profile-dashboard-stats {
   display: flex;
-  gap: 0.rem;
-  flex-wrap: wrap; /* allow wrapping on smaller screens */
+  flex-wrap: wrap; 
+  gap: 1rem;
   margin-bottom: 2rem;
 }
 
@@ -67,59 +81,49 @@
   background-color: #262626;
   border: 1px solid #333;
   border-radius: 6px;
-  padding: 0.50rem;
+  padding: .35rem;
   text-align: center;
-  min-width: 150px; /* so they don’t get too narrow */
+  min-width: 120px; 
 }
 
 .stat-card h2 {
   margin: 0 0 0.5rem 0;
-  color: #C9B037; /* Gold accent */
+  color: #C9B037; 
   font-size: 1.25rem;
 }
 
 .stat-card p {
   font-size: 1.5rem;
-  color: #C9B037; /* Dark red for Warhammer aesthetic */
+  color: #C9B037; 
   margin: 0;
 }
 
-/* Section titles */
-.section-title {
-  font-size: 1.5rem;
-  color: #C9B037;
-  margin-bottom: 1rem;
-}
+/* tabs */
 
-/* Posts/List sections */
-/* === Tab Panel Container === */
 .profile-tab-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   background: #1a1a1a;
-  padding: 20px;
+  padding: .75rem;
   border-radius: 6px;
 }
 
-/* === Tab Panel Title === */
 .profile-tab-title {
-  font-family: 'Cinzel', serif; /* or a Gothic-themed font */
+  font-family: 'Cinzel', serif;
   font-size: 2rem;
-  color: #FFD700; /* Gold accent */
+  color: #FFD700;
   margin-bottom: 1.5rem;
   text-align: center;
 }
 
-/* === Error Message === */
 .profile-tab-error {
-  color: #ff4500; /* Fiery red for errors */
+  color: #ff4500;
   font-weight: 700;
   text-align: center;
   margin-bottom: 20px;
 }
 
-/* === No Post Message === */
 .profile-tab-nopost-message {
   font-size: 1.2rem;
   color: #B0C4DE;
@@ -128,7 +132,6 @@
   margin-top: 1rem;
 }
 
-/* === Post/List Container === */
 .profile-tab-list {
   width: 100%;
   display: flex;
@@ -136,7 +139,6 @@
   gap: 20px;
 }
 
-/* === Individual Item === */
 .profile-tab-item {
   background: linear-gradient(145deg, #2d2d2d, #1a1a1a);
   border: 2px solid #cfcdc1; 
@@ -151,7 +153,6 @@
   box-shadow: 0px 4px 10px rgba(255, 215, 0, 0.8);
 }
 
-/* === Item Title === */
 .profile-tab-item-title {
   font-family: 'Cinzel', serif;
   font-size: 1.5rem;
@@ -159,34 +160,30 @@
   margin-bottom: 1rem;
 }
 
-/* === Item Image === */
 .profile-tab-image {
   max-width: 200px;
   border: 2px solid #708090;
   border-radius: 8px;
   box-shadow: 0px 2px 5px rgba(0,0,0,0.8);
-  margin-bottom: 15px;
+  margin-bottom: 1rem;
 }
 
-/* === Item Excerpt === */
 .profile-tab-excerpt {
   font-family: 'Roboto', sans-serif;
   font-size: 1rem;
   font-weight: 600;
   color: #ffffff;
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
 }
 
-/* === Item Actions Container === */
 .profile-tab-actions {
   display: flex;
   justify-content: center;
   gap: 15px;
 }
 
-/* === Action Buttons === */
 .profile-tab-button {
-  padding: 10px 15px;
+  padding: .75rem;
   font-size: 1rem;
   font-weight: 600;
   background-color: #8B0000; 
@@ -199,14 +196,12 @@
   transition: all 0.3s ease;
   letter-spacing: 1px;
 }
-
 .profile-tab-button:hover {
-  background-color: #B22222; /* Firebrick */
+  background-color: #B22222; 
   box-shadow: 0px 4px 10px rgba(255, 69, 0, 0.8);
 }
 
-
-/* React tabs */
+/* react tabs overrides */
 .react-tabs__tab-list {
   border-bottom: 1px solid #444;
   margin-bottom: 1rem;
@@ -216,20 +211,38 @@
   background-color: #1a1a1a;
 }
 
-/* Individual tabs */
 .react-tabs__tab {
-  padding: 0.5rem 1rem;
+  padding: 0.1rem .1rem !important;
   cursor: pointer;
   color: #C9B037;
-  background-color: #1a1a1a;
+  background-color: #1a1a1a ;
   border: 1px solid #444;
-  border-radius: 4px 4px 0 0;
-  transition: background-color 0.2s;
+  border-radius: 4px 4px 0 0 !important;
+  transition: background-color 0.2s!important;
+}
+.react-tabs__tab--selected {
+  background-color: #262626 !important; 
+  border-bottom: none !important; 
+  color: red !important; 
 }
 
-.react-tabs__tab--selected {
-  background-color: #262626; 
-  border-bottom: none; 
-  color: red; 
+
+/* media querry */
+
+@media (min-width: 769px) and (max-width: 992px) {
+  .profile-tab-container {
+    padding: 5rem;
+  }
+
 }
+
+
+@media (min-width: 993px) {
+  .profile-tab-container {
+    padding: 5rem;
+  }
+
+}
+  
+
 

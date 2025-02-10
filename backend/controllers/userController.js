@@ -15,10 +15,8 @@ cloudinary.config({
     api_secret: process.env.CLOUDINARY_API_SECRET,
 })
 
-//work on displaying another users profile.
 exports.get_user_by_id = asyncHandler(async (req, res, next) => {
     const userId = parseInt(req.params.userId, 10);
-
     const user = await prisma.user.findUnique({
         where: {id: userId},
         include: {

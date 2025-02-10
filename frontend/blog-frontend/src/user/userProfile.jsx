@@ -15,8 +15,8 @@ const UserProfile = () => {
   useEffect(() => {
     async function getUser() {
         try{
-            const res = await axios.get(`${BACKEND_URL}/api/user/${userId}`, {}, )
-            setUserProfile(res.data);
+            const res = await axios.get(`${BACKEND_URL}/api/user/${userId}`)
+            console.log(res.data.user);
         }catch(err){
             setGetErrors();
         }
@@ -27,41 +27,44 @@ const UserProfile = () => {
   const displayPost = (postId) => {
     navigate(`/post/${postId}`)
   }
-
-  if (!userProfile) {
-    return <div>Loading...</div>;
-  }
-
+  
   return (
     <div>
-      <h1>{userProfile.username}'s Profile</h1>
-      <img
-        src={userProfile.profilePicUrl}
-        alt="Profile picture"
-        style={{ width: '150px', height: '150px', borderRadius: '50%' }}
-      />
-      <p>{userProfile.bio}</p>
-
-      <h1>{userProfile.username}'s Post</h1>
-      {userProfile.posts && userProfile.posts.length > 0 ? (
-        userProfile.posts.map((post, index) => (
-          <div key={index} style={{ marginBottom: '20px' }}>
-            <h3 onClick={() => displayPost(post.id)}>{post.title}</h3>
-            {post.postImageUrl && (
-              <img
-                src={post.postImageUrl}
-                alt={`${post.title} cover`}
-                style={{ width: '200px', height: 'auto' }}
-              />
-            )}
-            <p>{post.excerpt}</p>
-          </div>
-        ))
+      {!userProfile ? (
+        <p>Loading user profile...</p>
       ) : (
-        <p>This user doesn't have any posts</p>
+        <>
+          <h1>{userProfile.username}'s Profile</h1>
+          <img
+            src={userProfile.profilePicUrl}
+            alt="Profile picture"
+            style={{ width: '150px', height: '150px', borderRadius: '50%' }}
+          />
+          <p>{userProfile.bio}</p>
+  
+          <h1>{userProfile.username}'s Post</h1>
+          {userProfile.posts && userProfile.posts.length > 0 ? (
+            userProfile.posts.map((post, index) => (
+              <div key={index} style={{ marginBottom: '20px' }}>
+                <h3 onClick={() => displayPost(post.id)}>{post.title}</h3>
+                {post.postImageUrl && (
+                  <img
+                    src={post.postImageUrl}
+                    alt={`${post.title} cover`}
+                    style={{ width: '200px', height: 'auto' }}
+                  />
+                )}
+                <p>{post.excerpt}</p>
+              </div>
+            ))
+          ) : (
+            <p>This user doesn't have any posts</p>
+          )}
+        </>
       )}
     </div>
   );
+  
 };
 
 export default UserProfile;

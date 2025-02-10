@@ -1,23 +1,25 @@
 /* Container */
 .preview-post-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     min-height: 100vh;
-    width: 100%;
-    background: #1a1a1a; /* Grimdark background */
+    background: #1a1a1a; /* Dark, grimdark background */
     font-family: 'Lora', serif; /* Gothic-style font */
     color: #ffffff;
-    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: .5rem;
+    box-sizing: border-box;
 }
 
 .preview-post-box {
-    width: 70%;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
     background: linear-gradient(145deg, #2d2d2d, #1a1a1a);
     border: 2px solid #cfcdc1; /* Imperial border */
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.8);
     border-radius: 15px;
-    padding: 40px;
+    padding: 2rem;
     box-sizing: border-box;
 }
 
@@ -37,27 +39,27 @@
 
 /* Title */
 .preview-post-title {
-    text-align: center;
-    font-family: 'Cinzel', serif;
-    font-size: 2.5rem;
+    font-family: 'Cinzel', serif; /* Ornate Gothic font */
+    font-size: 2rem;
     color: #FFD700; /* Gold */
-    margin-bottom: 30px;
+    text-align: center;
+    margin-bottom: 2rem;
     letter-spacing: 2px;
 }
 
 /* Meta Section (Categories & Tags) */
 .preview-meta-section {
     display: flex;
-    justify-content: space-between;
     gap: 40px;
-    margin-bottom: 20px;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
 }
 
 .preview-heading {
-    font-size: 1.3rem;
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
     color: #FFD700;
     margin-bottom: 10px;
-    font-family: 'Cinzel', serif;
 }
 
 .preview-category-item,
@@ -111,11 +113,12 @@
 .preview-image-section {
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 2rem;
 }
 
 .preview-post-image {
-    max-width: 500px;
+    max-width: 80%;
+    height: auto;
     border: 2px solid #FFD700;
     border-radius: 8px;
     box-shadow: 0px 4px 10px rgba(0,0,0,0.8);
@@ -124,13 +127,12 @@
 /* Post Content */
 .preview-content {
     font-family: 'Lora', serif;
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    color: #ffffff;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
     background-color: #1a1a1a;
-    padding: 20px;
+    padding: 1rem;
     border: 2px solid #708090;
     border-radius: 8px;
 }
@@ -174,7 +176,7 @@
 @media (max-width: 768px) {
     .preview-post-box {
         width: 90%;
-        padding: 20px;
+        padding: 1rem;
     }
 
     .preview-post-title {

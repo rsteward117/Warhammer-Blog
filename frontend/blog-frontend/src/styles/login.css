@@ -1,12 +1,11 @@
 /* Container */
 .login-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 20px;
+    min-height: auto;
+    width: 100%;
+    position: relative;
+    margin: 0 auto;
+    padding: 1rem;
     width: 50%;
-    height: auto;
     border-radius: 15px;
     background: linear-gradient(145deg, #2d2d2d, #1a1a1a);
     border: 2px solid #cfcdc1; /* Gold border for Imperial style */
@@ -24,7 +23,7 @@
 .login-aquila{
     display: block;
     margin: 0 auto; /* Centers the image */
-    width: 200px; /* Set a specific width */
+    width: 6rem; /* Set a specific width */
     height: auto; /* Keeps the aspect ratio intact */
 }
 
@@ -49,7 +48,7 @@
 }
 
 .form-input {
-    padding: 15px;
+    padding: 2rem;
     font-size: 1rem;
     font-weight: 600;
     border: 2px solid #708090; /* Slate gray border */
@@ -114,7 +113,7 @@
 @media (max-width: 768px) {
     .login-container {
         width: 80%;
-        padding: 15px;
+        padding: 2rem;
     }
 
     .login-header h1 {

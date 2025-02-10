@@ -134,6 +134,6 @@
   }
 
   .nav-right {
-    display: none; /* Optionally hide profile and search bar */
+    display: none; 
   }
 }

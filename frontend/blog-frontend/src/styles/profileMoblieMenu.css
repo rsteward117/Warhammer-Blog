@@ -1,0 +1,62 @@
+.profile-mobile-menu{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 40%;
+    height: 100vh;
+    background-color: #000000; /* Dark side for Warhammer vibe */
+    color: #f2f2f2;
+    display: none;
+    z-index: 1000;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem 1rem;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.profile-mobile-menu.active{
+    display: flex;
+    animation: slide-from-left 0.5s ease-in-out;
+}
+
+@keyframes slide-from-left {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
+.profile-mobile-sidebar-menu{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    margin-top: 5rem;
+}
+
+.profile-mobile-sidebar-menu-item{
+    margin-bottom: 3rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.profile-mobile-sidebar-menu-item:hover{
+    background-color: #660000; /* Dark red on hover */
+    color: #fff;
+}
+
+.close-button{
+    margin-top: 4rem;
+    margin-left: 1rem;
+    background: none;
+    border: none;
+    color: #FFD700;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
